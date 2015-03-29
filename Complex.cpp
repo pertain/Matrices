@@ -29,15 +29,15 @@ const Complex Complex::operator+(float rl){
 }
 
 const Complex Complex::operator*(const Complex &cx){
-	Complex tempComplex;
-	float x, y, a, b;
-	x = real;
-	y = imag;
-	a = cx.real;
-	b = cx.imag;
-	tempComplex.real = (x * a) - (y * b);
-	tempComplex.imag = (x * b) + (y * a);
-	return tempComplex;
+    Complex tempComplex;
+    float x, y, a, b;
+    x = real;
+    y = imag;
+    a = cx.real;
+    b = cx.imag;
+    tempComplex.real = (x * a) - (y * b);
+    tempComplex.imag = (x * b) + (y * a);
+    return tempComplex;
 }
 
 Complex operator+(float rl, Complex &cx){
@@ -45,26 +45,26 @@ Complex operator+(float rl, Complex &cx){
 }
 
 istream &operator>>(istream &in, Complex &cpx){
-	in >> cpx.real >> cpx.imag;
-	return in;
+    in >> cpx.real >> cpx.imag;
+    return in;
 }
 
 ostream &operator<<(ostream &out, Complex &cpx){
-	out << setw(2) << fixed << setprecision(1);
-	if(cpx.imag == 0){
-		return out << cpx.real << "\t";
-	}
-	else{
-		if(cpx.real == 0){
-			return out << cpx.imag << "i\t";
-		}
-		else{
-			if(cpx.imag < 0){
-				return out << cpx.real << " - " << ((-1)*cpx.imag) << "i";
-			}
-			else{
-				return out << cpx.real << " + " << cpx.imag << "i";
-			}
-		}
-	}
+    out << setw(2) << fixed << setprecision(1);
+    if(cpx.imag == 0){
+        return out << cpx.real << "\t";
+    }
+    else{
+        if(cpx.real == 0){
+            return out << cpx.imag << "i\t";
+        }
+        else{
+            if(cpx.imag < 0){
+                return out << cpx.real << " - " << ((-1)*cpx.imag) << "i";
+            }
+            else{
+                return out << cpx.real << " + " << cpx.imag << "i";
+            }
+        }
+    }
 }

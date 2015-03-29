@@ -17,7 +17,7 @@ int main (void)
     ifstream inStr1a, inStr1, inStr2, inStr3, inStr5;
     Complex number (5.2, 3.4);
     string infilename;
- 	
+    
     //Test overloaded stream insertion and extraction operators
     cout << "Opening Matrix 1 from file" << endl;
     cin >> infilename;
@@ -37,7 +37,7 @@ int main (void)
     inStr1 >> m1;
     cout << "Matrix 1 is " << endl << m1 << endl;
     inStr1.close();
-	
+    
     // Test if Matrix 4 is impacted by the change in Matrix 1
     cout << "Matrix 4 is now: " << endl;
     cout << m4 << endl;
@@ -116,7 +116,7 @@ int main (void)
     cout << m2 << endl;
     
     cout << "Bye!" << endl << endl;    
-	
+    
     return 0;
 }
 
