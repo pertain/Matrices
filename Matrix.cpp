@@ -52,10 +52,13 @@ Matrix &Matrix::operator=(const Matrix &mx){
 Matrix &Matrix::operator=(const Complex &cx){
     rows = 1;
     cols = 1;
-    delete matrixArray;                                     //  Calls destructor on original matrixArray
-    matrixArray = new Complex*[rows];                       //  and creates a new matrixArray of size 1
-    matrixArray[0] = new Complex[cols];                     //  that is populated with the assigned Complex number
-    matrixArray[0][0] = cx;
+
+    delete matrixArray;                 //  Call destructor on original matrixArray
+
+    matrixArray = new Complex*[rows];   //  Create new 1x1 matrixArray
+    matrixArray[0] = new Complex[cols];
+
+    matrixArray[0][0] = cx;             //  Populate w/ the assigned Complex number
     return *this;
 }
 
@@ -170,15 +173,18 @@ ifstream &operator>>(ifstream &fin, Matrix &mx){
         fin >> numRows >> numCols;
         mx.rows = numRows;
         mx.cols = numCols;
-        delete mx.matrixArray;                                          //  Calls destructor on the original matrixArray
-        mx.matrixArray = new Complex*[numRows];                         //  and creates a new matrixArray
-        for(int i = 0; i < numRows; i++){                               //  Dimensions come from the input file
+
+        delete mx.matrixArray;                  //  Call destructor on original matrixArray
+        mx.matrixArray = new Complex*[numRows]; //  Create new dynamic matrixArray
+
+        for(int i = 0; i < numRows; i++){
             mx.matrixArray[i] = new Complex[numCols];
         }
-        for(int i = 0; i < numRows; i++){                               //  Populates matrixArray with
-            for(int j = 0; j < numCols; j++){                           //  values from the input file
-                fin >> rl >> img;                                       //
-                cpx = Complex(rl, img);                                 //
+
+        for(int i = 0; i < numRows; i++){       //  Populate matrixArray w/ vals from input file
+            for(int j = 0; j < numCols; j++){
+                fin >> rl >> img;
+                cpx = Complex(rl, img);
                 mx.matrixArray[i][j] = cpx;
             }
         }
