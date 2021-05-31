@@ -72,9 +72,9 @@
 //
 //-----------------------------------------------------------------------------------
 
-#include <iostream>
-using namespace std;
+#ifndef COMPLEX_H
 
+#include <iostream>
 
 class Complex{
 
@@ -88,6 +88,8 @@ public:
     const Complex operator+(float);
     const Complex operator*(const Complex &);
     friend Complex operator+(float, Complex &);
-    friend ostream &operator<<(ostream &, Complex &);
-    friend istream &operator>>(istream &, Complex &);
+    friend std::ostream &operator<<(std::ostream &, Complex &);
+    friend std::istream &operator>>(std::istream &, Complex &);
 };
+
+#endif

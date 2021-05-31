@@ -12,8 +12,6 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
-using namespace std;
-
 
 // parameterized constructor
 Matrix::Matrix(int row, int col){
@@ -72,8 +70,8 @@ const Matrix Matrix::operator+(const Matrix &mx){
         }
     }
     else{
-        cout << "\nUnable to add the matrices because" << endl;
-        cout << "they are not the same size\n" << endl;
+        std::cout << "\nUnable to add the matrices because" << std::endl;
+        std::cout << "they are not the same size\n" << std::endl;
     }
     return tempMatrix;
 }
@@ -103,7 +101,7 @@ const Matrix Matrix::operator*(const Matrix &mx){
         }
     }
     else{
-        cout << "\nThe matrices are not compatible for multiplication\n" << endl;
+        std::cout << "\nThe matrices are not compatible for multiplication\n" << std::endl;
     }
     return tempMatrix;
 }
@@ -139,7 +137,7 @@ Matrix operator*(Complex &cx, Matrix &mx){
 }
 
 
-ostream &operator<<(ostream &out, Matrix &mx){
+std::ostream &operator<<(std::ostream &out, Matrix &mx){
     out << "\n\n";
     for(int i = 0; i < mx.rows; i++){
         for(int j = 0; j < mx.cols; j++){
@@ -151,11 +149,11 @@ ostream &operator<<(ostream &out, Matrix &mx){
     return out;
 }
 
-istream &operator>>(istream &in, Matrix &mx){
+std::istream &operator>>(std::istream &in, Matrix &mx){
     Complex cpx;
     for(int i = 0; i < mx.rows; i++){
         for(int j = 0; j < mx.cols; j++){
-            cout << "Location [" << i << "][" << j << "]? ";
+            std::cout << "Location [" << i << "][" << j << "]? ";
             in >> cpx;
             mx.matrixArray[i][j] = cpx;
         }
@@ -164,7 +162,7 @@ istream &operator>>(istream &in, Matrix &mx){
 }
 
 
-ifstream &operator>>(ifstream &fin, Matrix &mx){
+std::ifstream &operator>>(std::ifstream &fin, Matrix &mx){
     Complex cpx;
     int numRows, numCols;
     float rl, img;
@@ -191,7 +189,7 @@ ifstream &operator>>(ifstream &fin, Matrix &mx){
         fin.close();
     }
     else{
-        cout << "Unable to open file" << endl;
+        std::cout << "Unable to open file" << std::endl;
     }
     return fin;
 }

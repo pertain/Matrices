@@ -11,7 +11,6 @@
 #include "Complex.h"
 #include <iostream>
 #include <iomanip>
-using namespace std;
 
 
 // parameterized constructor
@@ -44,13 +43,13 @@ Complex operator+(float rl, Complex &cx){
     return Complex(cx.real + rl, cx.imag);
 }
 
-istream &operator>>(istream &in, Complex &cpx){
+std::istream &operator>>(std::istream &in, Complex &cpx){
     in >> cpx.real >> cpx.imag;
     return in;
 }
 
-ostream &operator<<(ostream &out, Complex &cpx){
-    out << setw(2) << fixed << setprecision(1);
+std::ostream &operator<<(std::ostream &out, Complex &cpx){
+    out << std::setw(2) << std::fixed << std::setprecision(1);
     if(cpx.imag == 0){
         return out << cpx.real << "\t";
     }

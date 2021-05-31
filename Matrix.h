@@ -113,11 +113,10 @@
 //
 //-----------------------------------------------------------------------------------
 
-
+#ifndef MATRIX_H
 
 #include "Complex.h"
 #include <iostream>
-using namespace std;
 
 class Matrix{
 
@@ -137,7 +136,9 @@ public:
     const Matrix operator*(const Complex &);
     friend Matrix operator+(Complex &, Matrix &);
     friend Matrix operator*(Complex &, Matrix &);
-    friend ostream &operator<<(ostream &, Matrix &);
-    friend istream &operator>>(istream &, Matrix &);
-    friend ifstream &operator>>(ifstream &, Matrix &);
+    friend std::ostream &operator<<(std::ostream &, Matrix &);
+    friend std::istream &operator>>(std::istream &, Matrix &);
+    friend std::ifstream &operator>>(std::ifstream &, Matrix &);
 };
+
+#endif
